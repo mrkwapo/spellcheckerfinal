@@ -1,0 +1,14 @@
+{
+  "name": "spellcheckerfinal",
+  "version": "1.0.0",
+  "description": "Spellchecker whiteboard:",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nate Kwapo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
