@@ -44,3 +44,5 @@ Install and set up nodemon
 2. In your terminal, type:
     
         npm install -g nodemon
+
+install axios
