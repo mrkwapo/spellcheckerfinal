@@ -29,7 +29,7 @@ Install and set up Express (also see this link for instructions on installing  a
 // which will initilize node package manager and create a package.json file
 //This command prompts you for a number of things, such as the name and version 
 of your application. For now, you can simply hit RETURN to accept the defaults for most of them except index.js which you can rename by typing  example.js or whatever
-
+// for this project I will be naming mine server.js
 
 2. Next type in the following to install express
         
@@ -43,7 +43,34 @@ Install and set up nodemon
         
 2. In your terminal, type:
     
-        npm install -g nodemon
 
-Install axios:
+        npm install nodemon
+
+
+Create an express app file:
+
+   1.     In the terminal type:
+        touch server.js
+   
+   2. then open server.js:
+        In c9 type c9 server.js or if you are using VS Code type code server.js and then press enter
+        
+   3. To check if everything is installed and working properly, console log "nodemon server is working" and save the server.js file.
+   4. In your terminal type npm run server and you should see the console log in your terminal and "[nodemon] clean exit - waiting for changes before restart"
+   5.  Go to the express website (https://expressjs.com/en/starter/hello-world.html) to find the express boiler plate. 
+   6.  copy and paste and save this to the server.js file:
+   
+        const express = require('express')
+        const app = express()
+        const port = 3000
+
+        app.get('/', (req, res) => res.send('Hello World!'))
+
+        app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+        
+        // if you are using c9 you will want to usae port 8080
+        // In the terminal it should also say "Example app listening on port 3000!"" 
+        // If you are using c9 or any other cloud platform like c9 use the following for port:
+        const port = process.env.PORT || 8080
+   7.         
 
