@@ -41,6 +41,12 @@ Install and set up nodemon
 
         "server": "nodemon server.js"
         
+        example: 
+"scripts": {
+   "test": "echo \"Error: no test specified\" && exit 1",
+   "server": "nodemon server.js"
+ }
+        
 2. In your terminal, type:
     
 
@@ -72,5 +78,89 @@ Create an express app file:
         // In the terminal it should also say "Example app listening on port 3000!"" 
         // If you are using c9 or any other cloud platform like c9 use the following for port:
         const port = process.env.PORT || 8080
-   7.         
+   7. Create a test route
+        -Add the following code in server.js after your first route
 
+        app.get('/api', function (req, res) {
+        res.send("API route working");
+        })
+        
+        //test this route by opening the preview and add /api at the end of the address. 
+        //In the web browser it should say "API route working"
+        if using a local editor use:
+                http://localhost:3000/api
+        if using c9 or any other cloud platform just add /api at the end of the preview address
+        example: https://exampleaddress.c9users.io/api
+
+        -Then edit the route with the following code to be able to get a query from the browser:
+        
+        app.get('/api', function (req, res) {
+        const userName = req.query.username;
+        console.log(userName);
+        res.send("API route working");
+        })
+        //Then if you go to your browser and type in the following in the address bar, you will send in a query to your server with the query username=Arnell-->
+        //http://localhost:3000/api?username=Nate
+        
+        //Notice you will see the username you typed will show in the terminal and not the browser nor the browser console.
+
+
+8. Create additional queries
+Change the api route to the following
+app.get('/api', function (req, res) {
+ const checkSpellingOf = req.query.checkspellingof;
+ const message = req.query.message;
+ console.log(userName);
+ const reply = `The spelling of the word ${checkSpellingOf} has been checked and it is ${message}`
+ res.send(reply);
+})
+
+Now to make multiple queries to the server, type the following in your browser address bar:
+http://localhost:3000/api?checkspellingof=tumultuous&message=correct!
+queries always start with a question mark “?”
+
+
+Create a front end web page
+
+1. terminate server by pressing ctrl + ctrl
+
+2. Create a public folder, change into the public folder and create an index.html, script.js and style.css file, by typing the following in your terminal:
+
+    mkdir public
+    cd public
+    for c9 press 
+    
+    touch index.html  
+    touch script.js
+    touch style.css
+    
+    Or  
+    
+    for Visual Studo Code type 
+    
+    code index.html
+    code script.js
+    code style.css
+    
+3. Open index.html file and copy, paste and save the following:
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Spellcheck app</title>
+ <script src="script.js"></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ <h2>Spellchecker App</h2>
+</body>
+
+</html>
+
+4.
