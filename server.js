@@ -1,6 +1,6 @@
 const express = require('express');
 const words = require("./data.js");
-// const getspelling = require("./getspelling.js");
+const getspelling = require("./getspelling.js");
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 8080;
@@ -11,8 +11,9 @@ app.use('/', express.static("public"));
 app.get("/getspelling", (req, res)=>{
   const word = req.query.word;
   const spelling = getspelling(words, word);
-  if (spelling){
-    res.send(spelling + "is spelled correctly!");
+  if (spelling === getspelling){
+   console.log(spelling.word);
+    res.send(word + "is spelled correctly!");
   }else{
     res.send("That word does not exist");
   }
@@ -41,3 +42,4 @@ app.listen(port, () => console.log(`Your app listening on port ${port}!`))
 
 console.log("server running");
 console.log("nodemon is working");
+
